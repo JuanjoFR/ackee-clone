@@ -1,0 +1,12 @@
+/* Based on this config: https://tailwindcss.com/docs/functions-and-directives#config */
+
+/* @tailwind base; */
+@import "tailwindcss/base";
+@import "./custom-base.css";
+
+/* @tailwind components; */
+@import "tailwindcss/components";
+@import "./custom-components.css";
+
+/* @tailwind utilities; */
+@import "tailwindcss/utilities";
