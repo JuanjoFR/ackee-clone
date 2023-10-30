@@ -5,6 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 import { useForm, Controller } from "react-hook-form"
 import { ErrorMessage } from "@hookform/error-message"
+import Link from "next/link"
 
 const schema = yup
   .object()
@@ -33,12 +34,12 @@ export default function Component() {
 
   return (
     <form className="m-8 max-w-md flex-1" onSubmit={handleSubmit(onSubmit)}>
-      <div className="rounded-t-lg bg-[#333838] px-7 py-16">
+      <div className="rounded-t-lg bg-[#333838] px-7 pb-10 pt-16">
         <div className="text-center">
           <h1 className="mb-4 text-4xl font-light tracking-wide text-white">
             Ackee
           </h1>
-          <p className="mb-16 text-lg font-light tracking-wide text-white opacity-50">
+          <p className="mb-16 text-lg font-light tracking-wide text-[#8D8F8F]">
             Welcome back, sign in to continue.
           </p>
         </div>
@@ -50,8 +51,10 @@ export default function Component() {
             <input
               {...field}
               type="text"
-              className={`block w-full rounded-lg border-2 border-transparent bg-white bg-opacity-5 p-2 text-lg font-light text-white transition-colors duration-300 focus:border-[#73fac8] focus:outline-none ${
-                errors && errors.username ? "mb-2" : "mb-4"
+              className={`block w-full rounded-lg border-2 bg-[#3D4242] p-2 text-lg font-light text-white transition-colors duration-300 focus:border-[#73fac8] focus:outline-none ${
+                errors && errors.username
+                  ? "mb-2 border-red-500"
+                  : "mb-4 border-transparent"
               }`}
               placeholder="Username"
             />
@@ -74,8 +77,10 @@ export default function Component() {
             <input
               {...field}
               type="password"
-              className={`block w-full rounded-lg border-2 border-transparent bg-white bg-opacity-5 p-2 text-lg font-light text-white transition-colors duration-300 focus:border-[#73fac8] focus:outline-none ${
-                errors && errors.password ? "mb-2" : "mb-4"
+              className={`block w-full rounded-lg border-2 bg-[#3D4242] p-2 text-lg font-light text-white transition-colors duration-300 focus:border-[#73fac8] focus:outline-none ${
+                errors && errors.password
+                  ? "mb-2 border-red-500"
+                  : "mb-4 border-transparent"
               }`}
             />
           )}
@@ -91,18 +96,19 @@ export default function Component() {
         />
       </div>
       <div className="flex">
-        <button
-          type="button"
+        <Link
           className="rounded-bl-lg border-r border-t border-[#282d2d] bg-[#333838] px-7 py-4 text-[#9EA1A1] transition-colors duration-300 hover:bg-[#3D4242]"
+          href="https://github.com/JuanjoFR/ackee-clone"
+          target="_blank"
         >
           Help
-        </button>
+        </Link>
         <button
           type="submit"
           className="w-full rounded-br-lg border-t border-[#282d2d] bg-[#333838] px-7 py-4 text-white transition-colors duration-300 hover:bg-[#3D4242]"
         >
           <div className="flex items-center justify-end">
-            <span className="mr-2">Sign in</span>
+            <span className="mr-1">Sign in</span>
             <HiArrowLongRight className="h-5 w-5" />
           </div>
         </button>
