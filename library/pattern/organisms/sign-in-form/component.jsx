@@ -6,6 +6,8 @@ import * as yup from "yup"
 import { useForm, Controller } from "react-hook-form"
 import { ErrorMessage } from "@hookform/error-message"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
+import { InlineFormError, TextField } from "../../atoms"
 
 const schema = yup
   .object()
@@ -23,13 +25,14 @@ export default function Component() {
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
-      username: "",
-      password: ""
+      username: "admin",
+      password: "password"
     }
   })
+  const router = useRouter()
 
-  function onSubmit(values) {
-    console.log("on submit", values)
+  function onSubmit() {
+    router.push("/dashboard")
   }
 
   return (
@@ -44,56 +47,43 @@ export default function Component() {
           </p>
         </div>
 
-        <Controller
-          name="username"
-          control={control}
-          render={({ field }) => (
-            <input
-              {...field}
-              type="text"
-              className={`block w-full rounded-lg border-2 bg-[#3D4242] p-2 text-lg font-light text-white transition-colors duration-300 focus:border-[#73fac8] focus:outline-none ${
-                errors && errors.username
-                  ? "mb-2 border-red-500"
-                  : "mb-4 border-transparent"
-              }`}
-              placeholder="Username"
-            />
-          )}
-        />
-        <ErrorMessage
-          errors={errors}
-          name="username"
-          render={({ message }) => (
-            <p className="mb-4 rounded-md bg-red-200 px-3 py-1.5 text-sm text-red-800">
-              {message}
-            </p>
-          )}
-        />
+        <div className="mb-4">
+          <Controller
+            name="username"
+            control={control}
+            render={({ field }) => (
+              <TextField
+                {...field}
+                error={errors && errors.username}
+                placeholder="Username"
+              />
+            )}
+          />
+          <ErrorMessage
+            errors={errors}
+            name="username"
+            render={(data) => <InlineFormError data={data} />}
+          />
+        </div>
 
-        <Controller
-          name="password"
-          control={control}
-          render={({ field }) => (
-            <input
-              {...field}
-              type="password"
-              className={`block w-full rounded-lg border-2 bg-[#3D4242] p-2 text-lg font-light text-white transition-colors duration-300 focus:border-[#73fac8] focus:outline-none ${
-                errors && errors.password
-                  ? "mb-2 border-red-500"
-                  : "mb-4 border-transparent"
-              }`}
-            />
-          )}
-        />
-        <ErrorMessage
-          errors={errors}
-          name="password"
-          render={({ message }) => (
-            <p className="rounded-md bg-red-200 px-3 py-1.5 text-sm text-red-800">
-              {message}
-            </p>
-          )}
-        />
+        <div className="mb-4">
+          <Controller
+            name="password"
+            control={control}
+            render={({ field }) => (
+              <TextField
+                {...field}
+                isPassword={true}
+                error={errors && errors.password}
+              />
+            )}
+          />
+          <ErrorMessage
+            errors={errors}
+            name="password"
+            render={(data) => <InlineFormError data={data} />}
+          />
+        </div>
       </div>
       <div className="flex">
         <Link
