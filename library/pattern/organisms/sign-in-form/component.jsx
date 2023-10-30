@@ -36,7 +36,7 @@ export default function Component() {
   }
 
   return (
-    <form className="m-8 max-w-md flex-1" onSubmit={handleSubmit(onSubmit)}>
+    <form className="container max-w-md px-8" onSubmit={handleSubmit(onSubmit)}>
       <div className="rounded-t-lg bg-[#333838] px-7 pb-10 pt-16">
         <div className="text-center">
           <h1 className="mb-4 text-4xl font-light tracking-wide text-white">

@@ -10,6 +10,7 @@
     "pretty": "npx prettier . --write"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.17",
     "@hookform/error-message": "^2.0.1",
     "@hookform/resolvers": "^3.3.2",
     "next": "14.0.0",
