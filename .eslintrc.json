@@ -8,14 +8,16 @@
     "eslint:recommended",
     "next",
     "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
   "overrides": [],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "react-hooks"],
+  "plugins": ["react", "@typescript-eslint", "react-hooks"],
   "rules": {
     "react/react-in-jsx-scope": "off", // react is imported automatically
     "react/prop-types": "off", // use jsdoc type validation
