@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation"
 import { InlineFormError, TextField } from "../../atoms"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { FormInput } from "./types"
 
 const schema = z.object({
   username: z.string().min(1, { message: "Please fill in the username" }),
@@ -19,7 +20,7 @@ export default function Component() {
     control,
     handleSubmit,
     formState: { errors }
-  } = useForm({
+  } = useForm<FormInput>({
     resolver: zodResolver(schema),
     defaultValues: {
       username: "admin",
@@ -51,7 +52,7 @@ export default function Component() {
             render={({ field }) => (
               <TextField
                 {...field}
-                error={errors && errors.username}
+                error={errors && typeof errors.username === "string"}
                 placeholder="Username"
               />
             )}
@@ -71,7 +72,7 @@ export default function Component() {
               <TextField
                 {...field}
                 isPassword={true}
-                error={errors && errors.password}
+                error={errors && typeof errors.password === "string"}
               />
             )}
           />

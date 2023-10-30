@@ -1,6 +1,7 @@
 // import { Tab } from "@headlessui/react"
 // import { TabMenu } from ".."
 import Link from "next/link"
+import { Properties } from "./types"
 
 const categories = [
   {
@@ -30,7 +31,7 @@ const categories = [
   }
 ]
 
-export default function Component({ activeIndex }) {
+export default function Component({ activeIndex }: Properties) {
   return (
     <nav className="container mx-auto">
       <ul className="flex space-x-1 rounded-xl bg-blue-900/20 p-1">
