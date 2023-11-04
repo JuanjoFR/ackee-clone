@@ -1,1 +1,1 @@
-export { default as DashboardTabs } from "./component"
+export { default as Component } from "./component"

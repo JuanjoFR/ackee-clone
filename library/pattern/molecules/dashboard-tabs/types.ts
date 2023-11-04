@@ -1,3 +1,7 @@
+import { ActiveInsightId } from "../insights-menu"
+
 export interface Properties {
-  activeIndex: number
+  activeMenuIndex: number
+  activeDomainId?: string
+  activeInsightId?: ActiveInsightId
 }
