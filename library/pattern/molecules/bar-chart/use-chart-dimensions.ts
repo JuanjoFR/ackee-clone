@@ -64,15 +64,6 @@ export default function useChartDimensions(
 
   function createResizeObserver() {
     return new ResizeObserver((entries) => {
-      console.log("resize observer triggered")
-      // if (!Array.isArray(entries)) return
-      // if (!entries.length) return
-      // const entry = entries[0]
-      // if (width != entry.contentRect.width)
-      //   setWidth(entry.contentRect.width)
-      // if (height != entry.contentRect.height)
-      //   setHeight(entry.contentRect.height)
-
       if (dimensions.width && dimensions.height) {
         return null
       }
@@ -105,52 +96,6 @@ export default function useChartDimensions(
   ])
 
   React.useEffect(() => {
-    // console.log("use effect hook dispatched")
-
-    // if (dimensions.width && dimensions.height) {
-    //   console.log("dimensions width and height exists")
-
-    //   // return [ref, dimensions]
-    // } else {
-    //   console.log("dimensions width and height doesn't exists")
-
-    //   const element = ref.current
-    //   const resizeObserver = new ResizeObserver((entries) => {
-    //     console.log("resize trigger dispatched")
-    //     // if (!Array.isArray(entries)) {
-    //     //   console.log("entries is an array")
-    //     // } else if (!entries.length) {
-    //     //   console.log("entries is empty")
-    //     // } else {
-    //     //   console.log("only one entry")
-    //     //   const entry = entries[0]
-
-    //     //   if (width != entry.contentRect.width) {
-    //     //     console.log("set width")
-    //     //     setWidth(entry.contentRect.width)
-    //     //   }
-
-    //     //   if (height != entry.contentRect.height) {
-    //     //     console.log("set height")
-    //     //     setHeight(entry.contentRect.height)
-    //     //   }
-    //     // }
-    //   })
-
-    //   // console.log("check element", element)
-    //   if (element) {
-    //     resizeObserver.observe(element)
-
-    //     return () => resizeObserver.unobserve(element)
-    //   }
-
-    //   // if (element) {
-    //   //   resizeObserverMemo.observe(element)
-
-    //   //   return () => resizeObserverMemo.unobserve(element)
-    //   // }
-    // }
-
     const element = ref.current
 
     if (element) {

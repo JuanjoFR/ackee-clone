@@ -23,22 +23,9 @@ export default function Marks({
             style={{ cursor: "pointer" }}
             onMouseEnter={() => {
               if (d.id !== activeMark.id) {
-                // console.log("on mouse over", d.id)
                 onMouseEnter(d)
               }
             }}
-            // onMouseOver={() => {
-            //   if (d.id !== activeMark.id) {
-            //     // console.log("on mouse over", d.id)
-            //     onMouseOver(d)
-            //   }
-            // }}
-            // onMouseOut={() => {
-            //   if (d.id !== data[data.length - 1].id) {
-            //     // console.log("on mouse out", defaultItem.id)
-            //     onMouseOut(d)
-            //   }
-            // }}
           />
           <rect
             x={xScale(d.id)}
