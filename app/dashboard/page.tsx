@@ -1,10 +1,13 @@
 import { DashboardTabs, HeaderLogo } from "@/library/pattern/molecules"
-import { BarChart, StatisticsSummary } from "@/library/pattern/organisms"
+import {
+  BarChartCard,
+  StatisticsSummaryCard
+} from "@/library/pattern/organisms"
 import React from "react"
 
 export default async function DashboardPage() {
   return (
-    <main className="min-h-screen bg-[#282d2d]">
+    <main>
       <div className="container mx-auto mb-2 pt-4">
         <HeaderLogo />
       </div>
@@ -19,21 +22,21 @@ export default async function DashboardPage() {
         fallback={
           <div className="container mx-auto">
             <div className="mx-4 mb-14">
-              <StatisticsSummary.Loading />
+              <StatisticsSummaryCard.Loading />
             </div>
           </div>
         }
       >
         <div className="container mx-auto">
           <div className="mx-4 mb-14">
-            <StatisticsSummary.Component />
+            <StatisticsSummaryCard.Component />
           </div>
         </div>
       </React.Suspense>
 
       <div className="container mx-auto">
         <div className="mx-4 mb-14">
-          <BarChart.Component />
+          <BarChartCard.Component />
         </div>
       </div>
 

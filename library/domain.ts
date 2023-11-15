@@ -1,5 +1,5 @@
-import "server-only"
 import { wait } from "./utilities"
+import { subDays } from "date-fns"
 
 export interface Domain {
   id: string
@@ -29,6 +29,14 @@ export interface StatisticsSummary {
   monthlyViews: number
   yearlyViews: number
 }
+
+export interface ViewsStatisticsSummaryItem {
+  id: string
+  date: Date
+  value: number
+}
+
+export type ViewsStatisticsSummary = ViewsStatisticsSummaryItem[]
 
 export async function getDomains() {
   await wait()
@@ -60,4 +68,27 @@ export async function getStatisticsSummary() {
     monthlyViews: 703,
     yearlyViews: 41400
   } as StatisticsSummary
+}
+
+export async function getViewsStatisticsSummary() {
+  await wait(3000)
+
+  const today = new Date()
+
+  return [
+    { id: "1", date: subDays(today, 13), value: 186 },
+    { id: "2", date: subDays(today, 12), value: 144 },
+    { id: "3", date: subDays(today, 11), value: 185 },
+    { id: "4", date: subDays(today, 10), value: 116 },
+    { id: "5", date: subDays(today, 9), value: 100 },
+    { id: "6", date: subDays(today, 8), value: 89 },
+    { id: "7", date: subDays(today, 7), value: 136 },
+    { id: "8", date: subDays(today, 6), value: 188 },
+    { id: "9", date: subDays(today, 5), value: 155 },
+    { id: "10", date: subDays(today, 4), value: 185 },
+    { id: "11", date: subDays(today, 3), value: 112 },
+    { id: "12", date: subDays(today, 2), value: 95 },
+    { id: "13", date: subDays(today, 1), value: 86 },
+    { id: "14", date: today, value: 63 }
+  ] as ViewsStatisticsSummary
 }

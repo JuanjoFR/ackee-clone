@@ -1,6 +1,5 @@
 import { formatDuration as dateFormatDuration } from "date-fns"
 import { ProgressionLabel } from "../../molecules"
-import React from "react"
 import { getStatisticsSummary } from "@/library/domain"
 
 export default async function Component() {

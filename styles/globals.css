@@ -1,12 +1,17 @@
-/* Based on this config: https://tailwindcss.com/docs/functions-and-directives#config */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* @tailwind base; */
-@import "tailwindcss/base";
-@import "./custom-base.css";
-
-/* @tailwind components; */
-@import "tailwindcss/components";
-@import "./custom-components.css";
-
-/* @tailwind utilities; */
-@import "tailwindcss/utilities";
+@layer components {
+  .tooltip:after {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    top: calc(100% - 1px);
+    padding: 0.2em 0.5em 0.75em;
+    background: white;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+    color: currentColor;
+    z-index: 1;
+  }
+}

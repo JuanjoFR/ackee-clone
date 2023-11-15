@@ -1,3 +1,4 @@
+export * as BarChart from "./bar-chart"
 export * as DashboardTabs from "./dashboard-tabs"
 export * from "./domains-menu"
 export * from "./header-logo"

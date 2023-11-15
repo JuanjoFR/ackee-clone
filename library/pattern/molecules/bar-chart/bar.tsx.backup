@@ -1,0 +1,23 @@
+import { BarProperties } from "./types"
+
+export default function Bar({
+  barElementWrapperProperties,
+  barElementProperties,
+  isActive,
+  onMouseOver,
+  onMouseOut
+}: BarProperties) {
+  return (
+    <g onMouseOver={onMouseOver} onMouseOut={onMouseOut}>
+      <rect {...barElementWrapperProperties} fill="transparent" />
+      <rect
+        {...barElementProperties}
+        className={`cursor-pointer ${
+          isActive ? "text-[#73FAC8]" : "text-[#6e7373] hover:text-[#73FAC8]"
+        }`}
+        fill="currentColor"
+        pointerEvents="none"
+      />
+    </g>
+  )
+}
